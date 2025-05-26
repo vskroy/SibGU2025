@@ -1,0 +1,27 @@
+    <!doctype html>
+    <title>Загрузка файлов</title>
+    <h1>Загрузить файл</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <form method=post enctype=multipart/form-data>
+      <input type=file name=file>
+      <input type=submit value=Загрузить>
+    </form>
+	<h1></h1>
+    <table border=10>
+        <tr><th>Пользовательское имя файла</th><th>Путь к файлу на сервере</th><th>Дата загрузки</th>
+        {% for f in files %}
+        <tr>
+            <td>{{ f.original_name }}</td>
+            <td>{{ f.path }}</td>
+            <td>{{ f.upload_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>

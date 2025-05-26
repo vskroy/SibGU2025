@@ -1,0 +1,10 @@
+    <h1>Список телефонных номеров</h1>
+    <form action="{{ url_for('show_info') }}" method="get">
+        <input type="text" name="number" placeholder="Введите номер телефона">
+        <input type="submit" value="Найти">
+    </form>
+    <ul>
+        {% for number in numbers %}
+        <li><a href="{{ url_for('show_info', number=number) }}">{{ number }}</a></li>
+        {% endfor %}
+    </ul>
