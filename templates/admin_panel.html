@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Админ-панель{% endblock %}
+
+{% block content %}
+<h2>Админ-панель</h2>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Пользователь</th>
+      <th>Загружено файлов</th>
+      <th>Создано ссылок</th>
+      <th>Активных ссылок</th>
+      <th>Всего скачиваний</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in stats %}
+    <tr>
+      <td>{{ row.username }}</td>
+      <td>{{ row.total_files }}</td>
+      <td>{{ row.links_created }}</td>
+      <td>{{ row.active_links }}</td>
+      <td>{{ row.total_downloads }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Добро пожаловать</h1>
+  {% if current_user.is_authenticated %}
+    <p>Вы вошли как {{ current_user.username }}</p>
+    <a href="{{ url_for('logout') }}" class="btn btn-danger">Выйти</a>
+  {% else %}
+    <a href="{{ url_for('login') }}" class="btn btn-primary">Войти</a>
+    <a href="{{ url_for('register') }}" class="btn btn-secondary">Регистрация</a>
+  {% endif %}
+{% endblock %}
